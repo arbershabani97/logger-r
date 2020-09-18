@@ -7,10 +7,10 @@ export default {
   duration: false,
   timestamp: true,
   stateTransformer: (state, action) => {
-    const names = action.type.toLowerCase().split("_");
+    const names = action.type.toLowerCase().split('_');
     const applicableKeys = Object.keys(state);
     const key = applicableKeys.find(reducer => names.includes(reducer));
-    return state[key];
+    return state[key] ? { [key]: state[key] } : state;
   },
   actionTransformer: action => action,
   errorTransformer: error => error,
