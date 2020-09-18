@@ -1,13 +1,13 @@
 {
-  "name": "logger-r",
-  "version": "4.0.0",
+  "name": "@as97/logger-r",
+  "version": "4.1.0",
   "description": "An extension of redux-logger, including the specific state",
   "main": "dist/redux-logger.js",
   "module": "dist/redux-logger.es.js",
   "jsnext:main": "dist/redux-logger.es.js",
   "scripts": {
     "lint": "eslint src",
-    "test": "npm run lint && npm run spec",
+    "test": "npm run spec",
     "spec": "nyc --all --silent --require babel-core/register mocha --plugins transform-inline-environment-variables --recursive spec/*.spec.js",
     "spec:watch": "npm run spec -- --watch",
     "coverage": "nyc report",
@@ -16,8 +16,8 @@
     "clean": "rimraf dist",
     "uglify": "uglifyjs dist/redux-logger.js -cm -o dist/redux-logger.js",
     "build": "rollup -c && npm run uglify",
-    "precommit": "npm test && npm run lint",
-    "prepublish": "npm run clean && npm test && npm run lint && npm run build"
+    "precommit": "npm test",
+    "prepublish": "npm run clean && npm test && npm run build"
   },
   "eslintConfig": {
     "extends": "airbnb",
