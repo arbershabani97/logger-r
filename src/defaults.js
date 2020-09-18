@@ -6,7 +6,12 @@ export default {
   predicate: undefined,
   duration: false,
   timestamp: true,
-  stateTransformer: state => state,
+  stateTransformer: (state, action) => {
+    const names = action.type.toLowerCase().split("_");
+    const applicableKeys = Object.keys(state);
+    const key = applicableKeys.find(reducer => names.includes(reducer));
+    return state[key];
+  },
   actionTransformer: action => action,
   errorTransformer: error => error,
   colors: {

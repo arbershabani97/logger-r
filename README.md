@@ -1,13 +1,11 @@
 # Logger for Redux
-[![npm](https://img.shields.io/npm/v/redux-logger.svg?maxAge=2592000?style=plastic)](https://www.npmjs.com/package/redux-logger)
-[![npm](https://img.shields.io/npm/dm/redux-logger.svg?maxAge=2592000?style=plastic)](https://www.npmjs.com/package/redux-logger)
-[![Build Status](https://circleci.com/gh/LogRocket/redux-logger/tree/master.svg?style=svg)](https://circleci.com/gh/LogRocket/redux-logger/tree/master)
+[![npm](https://img.shields.io/npm/v/logger-r.svg?maxAge=2592000?style=plastic)](https://www.npmjs.com/package/logger-r)
+[![npm](https://img.shields.io/npm/dm/logger-r.svg?maxAge=2592000?style=plastic)](https://www.npmjs.com/package/logger-r)
+[![Build Status](https://circleci.com/gh/arbershabani97/logger-r/tree/master.svg?style=svg)](https://circleci.com/gh/arbershabani97/logger-r/tree/master)
 
 ![redux-logger](http://i.imgur.com/CgAuHlE.png)
 
-Now maintained by [LogRocket](https://logrocket.com?cid=github_redux)!
-
-[![](https://i.imgur.com/Yp5mUx2.png)](https://logrocket.com?cid=github_redux)
+### An extension of redux-logger made from LogRocket, intending to solve the problem of showing only the necessary state needed
 
 > LogRocket is a production Redux logging tool that lets you replay problems as if they happened in your own browser. Instead of guessing why errors happen, or asking users for screenshots and log dumps, LogRocket lets you replay Redux actions + state, network requests, console logs, and see a video of what the user saw.
 
@@ -151,7 +149,7 @@ Receives `getState` function for  accessing current store state and `action` obj
 
 *Default: `null` (always log)*
 
-#### __stateTransformer = (state: Object) => state__
+#### __stateTransformer = (state: Object, action: Object) => state__
 Transform state before print. Eg. convert Immutable object to plain JSON.
 
 *Default: identity function*
@@ -220,7 +218,7 @@ createLogger({
 ```javascript
 import { Iterable } from 'immutable';
 
-const stateTransformer = (state) => {
+const stateTransformer = (state, action) => {
   if (Iterable.isIterable(state)) return state.toJS();
   else return state;
 };
@@ -233,7 +231,7 @@ const logger = createLogger({
 ### Transform Immutable (with `combineReducers`)
 ```javascript
 const logger = createLogger({
-  stateTransformer: (state) => {
+  stateTransformer: (state, action) => {
     let newState = {};
 
     for (var i of Object.keys(state)) {

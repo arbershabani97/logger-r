@@ -76,7 +76,7 @@ const store = createStore(
 
     logEntry.started = timer.now();
     logEntry.startedTime = new Date();
-    logEntry.prevState = stateTransformer(getState());
+    logEntry.prevState = stateTransformer(getState(), action);
     logEntry.action = action;
 
     let returnedValue;
@@ -91,7 +91,7 @@ const store = createStore(
     }
 
     logEntry.took = timer.now() - logEntry.started;
-    logEntry.nextState = stateTransformer(getState());
+    logEntry.nextState = stateTransformer(getState(), action);
 
     const diff = loggerOptions.diff && typeof diffPredicate === 'function'
       ? diffPredicate(getState, action)
