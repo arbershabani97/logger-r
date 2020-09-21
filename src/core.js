@@ -29,6 +29,7 @@ function defaultTitleFormatter(options) {
     const parts = ['action'];
 
     parts.push(`%c${String(action.type)}`);
+    parts.push(`%c${String(action.status || '')}`);
     if (timestamp) parts.push(`%c@ ${time}`);
     if (duration) parts.push(`%c(in ${took.toFixed(2)} ms)`);
 
@@ -66,12 +67,15 @@ function printBuffer(buffer, options) {
       : collapsed;
 
     const formattedTime = formatTime(startedTime);
+    const title = titleFormatter(formattedAction, formattedTime, took);
     const titleCSS = colors.title ? `color: ${colors.title(formattedAction)};` : '';
     const headerCSS = ['color: gray; font-weight: lighter;'];
     headerCSS.push(titleCSS);
+    if (title.toLowerCase().includes('request')) headerCSS.push('color: orange;');
+    if (title.toLowerCase().includes('success')) headerCSS.push('color: green;');
+    if (title.toLowerCase().includes('error')) headerCSS.push('color: red;');
     if (options.timestamp) headerCSS.push('color: gray; font-weight: lighter;');
     if (options.duration) headerCSS.push('color: gray; font-weight: lighter;');
-    const title = titleFormatter(formattedAction, formattedTime, took);
 
     // Render
     try {

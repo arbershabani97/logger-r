@@ -77,7 +77,7 @@ const store = createStore(
     logEntry.started = timer.now();
     logEntry.startedTime = new Date();
     logEntry.prevState = stateTransformer(getState(), action);
-    logEntry.action = action.status ? `${action} ${action.status}` : action;
+    logEntry.action = action;
 
     let returnedValue;
     if (logErrors) {
