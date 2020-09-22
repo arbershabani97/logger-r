@@ -74,6 +74,7 @@ function printBuffer(buffer, options) {
     if (title.toLowerCase().includes('request')) headerCSS.push('color: orange;');
     if (title.toLowerCase().includes('success')) headerCSS.push('color: green;');
     if (title.toLowerCase().includes('error')) headerCSS.push('color: red;');
+    if (title.toLowerCase().includes('pusher')) headerCSS.push('color: black;');
     if (options.timestamp) headerCSS.push('color: gray; font-weight: lighter;');
     if (options.duration) headerCSS.push('color: gray; font-weight: lighter;');
 

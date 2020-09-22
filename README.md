@@ -1,7 +1,7 @@
 # Logger for Redux
-[![npm](https://img.shields.io/npm/v/logger-r.svg?maxAge=2592000?style=plastic)](https://www.npmjs.com/package/logger-r)
-[![npm](https://img.shields.io/npm/dm/logger-r.svg?maxAge=2592000?style=plastic)](https://www.npmjs.com/package/logger-r)
-[![Build Status](https://circleci.com/gh/arbershabani97/logger-r/tree/master.svg?style=svg)](https://circleci.com/gh/arbershabani97/logger-r/tree/master)
+[![npm](https://img.shields.io/npm/v/logger-r.svg?maxAge=2592000?style=plastic)](https://www.npmjs.com/package/@as97/logger-r)
+[![npm](https://img.shields.io/npm/dm/logger-r.svg?maxAge=2592000?style=plastic)](https://www.npmjs.com/package/@as97/logger-r)
+[![Build Status](https://circleci.com/gh/arbershabani97/logger-r/tree/master.svg?style=svg)](https://circleci.com/gh/arbershabani97/@as97/logger-r/tree/master)
 
 ![redux-logger](http://i.imgur.com/CgAuHlE.png)
 
@@ -27,11 +27,7 @@ For more informatiom about the future of redux-logger, check out the [discussion
 * [License](#license)
 
 ## Install
-`npm i --save redux-logger`
-
-Typescript types are also available, via [DefinitelyTyped](https://www.npmjs.com/package/@types/redux-logger):
-
-`npm i @types/redux-logger`
+`npm i --save @as97/redux-logger`
 
 ## Usage
 ```javascript
