@@ -7,10 +7,16 @@ export default {
   duration: false,
   timestamp: true,
   stateTransformer: (state, action) => {
+    if (!action.type) return state;
     const names = action.type.toLowerCase().split('_');
     const applicableKeys = Object.keys(state);
-    const key = applicableKeys.find(reducer => names.includes(reducer));
-    return state[key] ? { [key]: state[key] } : state;
+    const keys = applicableKeys.filter(reducer => names.includes(reducer.endsWith('s') ? reducer.slice(0, -1) : reducer));
+    const results = {};
+    keys.map((key) => {
+      if (state[key]) results[key] = state[key];
+    });
+    if (!Object.keys(results).length) return state;
+    return results;
   },
   actionTransformer: action => action,
   errorTransformer: error => error,

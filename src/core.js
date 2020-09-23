@@ -28,7 +28,7 @@ function defaultTitleFormatter(options) {
   return (action, time, took) => {
     const parts = ['action'];
 
-    parts.push(`%c${String(action.type)}`);
+    parts.push(`%c${String(action.type || '')}`);
     parts.push(`%c${String(action.status || '')}`);
     if (timestamp) parts.push(`%c@ ${time}`);
     if (duration) parts.push(`%c(in ${took.toFixed(2)} ms)`);

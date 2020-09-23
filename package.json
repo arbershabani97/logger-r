@@ -1,6 +1,6 @@
 {
   "name": "@as97/logger-r",
-  "version": "4.2.3",
+  "version": "4.2.4",
   "description": "An extension of redux-logger, including the specific state",
   "main": "dist/redux-logger.js",
   "module": "dist/redux-logger.es.js",
